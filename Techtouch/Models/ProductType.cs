@@ -11,6 +11,9 @@ namespace Techtouch.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
+    using System.Web.Mvc;
     
     public partial class ProductType
     {
@@ -18,8 +21,9 @@ namespace Techtouch.Models
         {
             this.Products = new HashSet<Product>();
         }
-    
+
         public int product_type_id { get; set; }
+        [DisplayName("Product Type")]
         public string product_type { get; set; }
     
         public virtual ICollection<Product> Products { get; set; }
