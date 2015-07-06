@@ -63,6 +63,16 @@ namespace Techtouch
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            app.UseTwitterAuthentication(
+    consumerKey: "x",
+    consumerSecret: "x");
+
+            app.UseFacebookAuthentication(
+                appId: "x",
+                appSecret: "x");
+
+            app.UseGoogleAuthentication();
         }
     }
 }
