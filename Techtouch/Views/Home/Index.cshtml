@@ -2,16 +2,18 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron-styles">
-    <h1>Techtouch</h1>
-    <p class="lead">In techtouch, we deliver only the best products.</p>
-    <div class="container">
-        <div class="main-links">
-            <div class="row">
-                <p class="col-md-4"> @Html.ActionLink("Register", "Register", "Account")</p>
-                <p class="col-md-4"> @Html.ActionLink("Login", "Login", "Account")</p>
-                <p class="col-md-4"> @Html.ActionLink("Go to Products", "Index", "Products")</p>
+<div class="container">
+    <div class="jumbotron-styles">
+        <h1>Techtouch</h1>
+        <p class="lead">In techtouch, we deliver only the best products.</p>
+        <div class="container">
+            <div class="main-links">
+                <div class="row">
+                    <a href="@Url.Action("Register", "Account")" class="btn btn-default">Register</a>
+                    <a href="@Url.Action("Login", "Account")" class="btn btn-default">Login</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
