@@ -16,9 +16,10 @@
         window.appInsights=appInsights;
         appInsights.trackPageView();
     </script>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,7 +29,7 @@
                 </button>
                 @Html.ActionLink("Techtouch", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="float:right">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
@@ -39,6 +40,9 @@
             </div>
 
         </div>
+    </div>
+    <div>
+        <img src="/../Images/header.jpg" class="header-image" />
     </div>
     <div class="container body-content">
         @RenderBody()

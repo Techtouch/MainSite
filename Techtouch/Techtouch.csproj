@@ -241,11 +241,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+<<<<<<< HEAD
     <Content Include="Content\zocial.css" />
+=======
+    <Content Include="Content\Styles.css" />
+>>>>>>> design
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\header.jpg" />
     <Content Include="Scripts\ai.0.15.0-build30412.js" />
     <Content Include="Scripts\ai.0.15.0-build30412.min.js" />
     <Content Include="Scripts\bootstrap.js" />
