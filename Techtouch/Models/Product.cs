@@ -34,6 +34,8 @@ namespace Techtouch.Models
         public string product_description { get; set; }
         [DisplayName("Product Type")]
         public int product_type_id { get; set; }
+        [DisplayName("Product Image")]
+        public byte[] product_image { get; set; }
     
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ProductType ProductType { get; set; }

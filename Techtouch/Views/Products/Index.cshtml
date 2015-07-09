@@ -6,20 +6,20 @@
 
 <h2 class="page-headings">Products.</h2>
 
-    <!--
+    
 <p>
     @Html.ActionLink("Create New", "Create")
 
     @using (Html.BeginForm())
     {
     <p>
-        Title: @Html.TextBox("SearchString") <br />
+        Product: @Html.TextBox("SearchString")
         <input type="submit" value="Search" />
     </p>
     }
     
-</p>
-        -->
+
+        
 <table class="table table-striped">
     
     <tr>
@@ -53,13 +53,12 @@
         <td>
             $@Html.DisplayFor(modelItem => item.product_price)
         </td>
-        <!--
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
+            @Html.ActionLink("Details", "Details", new { id = item.product_id })|
+          <!--  @Html.ActionLink("Delete", "Delete", new { id=item.product_id }) -->
         </td>
-            -->
     </tr>
 }
 

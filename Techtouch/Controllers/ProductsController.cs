@@ -68,14 +68,12 @@ namespace Techtouch.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.product_type_id = new SelectList(db.ProductTypes, "product_type_id", "product_type", product.product_type_id);
-            return View(product);
+                ViewBag.product_type_id = new SelectList(db.ProductTypes, "product_type_id", "product_type", product.product_type_id);
+                return View(product);
+            }
         }
+
 
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
