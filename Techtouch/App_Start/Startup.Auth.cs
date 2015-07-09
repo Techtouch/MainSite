@@ -54,25 +54,15 @@ namespace Techtouch
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
-
-            app.UseTwitterAuthentication(
-    consumerKey: "x",
-    consumerSecret: "x");
-
             app.UseFacebookAuthentication(
-                appId: "x",
-                appSecret: "x");
+               appId: "1153285231353637",
+               appSecret: "bbbee912cf29f1d78e4735774b0bc33b");
 
-            app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "187417318617-00i8n360da6kltmjp12d34gm4uhm40td.apps.googleusercontent.com",
+                ClientSecret = "6iDqZozbT0PE5gbHGdCY8lmq"
+            });
         }
     }
 }
