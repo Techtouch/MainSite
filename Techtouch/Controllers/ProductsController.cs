@@ -15,9 +15,25 @@ namespace Techtouch.Controllers
         private TechtouchConnection db = new TechtouchConnection();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string productType, string searchString)
         {
+            var productList = new List<string>();
+
+
+
+
             var products = db.Products.Include(p => p.ProductType);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = db.Products.Where(s => s.product_name.Contains(searchString));
+            }
+
+
+            if (!string.IsNullOrEmpty(productType))
+            {
+                products = db.Products.Where(x => x.ProductType.ToString() == productType);
+            }
             return View(products.ToList());
         }
 
