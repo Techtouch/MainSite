@@ -1,14 +1,29 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
-<h2 class="page-headings">@ViewBag.Title.</h2>
-
-<div class="container">
-    <div class="row">
-        <div class="content">
-            <center>
-                <p>Use this area to provide additional information.</p>
-            </center>
-        </div>       
+<h2>@ViewBag.Title.</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>@ViewBag.Message</h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;First off, we'd like to say thank you for wanting to learn more about the great people behind TechTouch. Secondly, I hope you are ready to learn about us, because there is a lot to tell.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;So where to begin? We started out as a group of PC Hardware enthusiasts in college. We loved to put together new computers, from base computers to function as just local file servers, to big top of the line gaming behemoths. The problem was though, we would have to search far and wide to get the appropriate parts to create the beautiful machines that we wanted to create. This wasted a lot of time, and it was also often times, off putting. We just wanted to create theses beasts as soon as possible, not search high and low on the internet for a chance to find what we were seeking. That is what has lead us to creating this, TechTouch. We've done the searching for you, and are always updating our lists with the newest and greatest products, so you can get your parts quckly, and start building.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;You might be wondering how we select our products, and how we can be sure that we only provide the bestell unlike other retailers that claim to have the best, we really do! We know we do, because every part that we sell, has been tested by our very own staff. We push the hardware to the limits, and only except the best. Nothing that we wouldn't use to create our beasts , is sold here. We even do annual checks of all of our products to make sure that the model we are selling still meets are minimum requirements for the next generation. We are constantly adding new products, while also sadly saying goodbye to the hardware that use to be the best, but are now just good.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;So now you have learned something about us, we hope t was just the right amount. If you'd like to learn more about us, please don't hesitate to contact us. We are always eager to talk to those who believe in us. Wondering how you can ask us question and learn more? Simply go to the @Html.ActionLink("Contact Page", "Contact", "Home"), and sending us a message using that designated email, or call us and have a more personalized conversation. That number is also located on the @Html.ActionLink("Contact Page", "Contact", "Home"). 
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;Thank you for showing interest in us, and may all your beast builds be the envy of the neighbourhood.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;Sincerely, The TechTouch Crew
+        </p>
     </div>
 </div>
