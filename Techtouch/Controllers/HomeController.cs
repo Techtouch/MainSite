@@ -10,7 +10,7 @@ namespace Techtouch.Controllers
     [RequireHttps]
     public class HomeController : Controller
     {
-        private TechtouchConnection db = new TechtouchConnection();
+        private TechTouchieEntities db = new TechTouchieEntities();
         public ActionResult Index()
         {
             ViewBag.HeaderImage = "~/Content/Images/header.jpg";
