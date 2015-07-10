@@ -19,47 +19,20 @@
     }
     
 
-        
-<table class="table table-striped">
-    
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductType.product_type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_description)
-        </th>       
-        <th>
-            @Html.DisplayNameFor(model => model.product_price)
-        </th>
-        <th></th>
-    </tr>
-      
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-primary col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel-heading">
+                <span class="panel-title">@Html.DisplayFor(modelItem => item.product_name)</span>
+                <span class="pull-right">@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>
+            </div>
+            <div class="panel-body">
+                <span class="span12"><img src='@Html.DisplayFor(modelItem => item.product_image)' /></span><br />
+                <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
+                <span>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</span> <br />
+            </div>
+        </div>
+    }
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductType.product_type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_description)
-        </td>        
-        <td>
-            $@Html.DisplayFor(modelItem => item.product_price)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.product_id })|
-          <!--  @Html.ActionLink("Delete", "Delete", new { id=item.product_id }) -->
-        </td>
-    </tr>
-}
-
-</table>
