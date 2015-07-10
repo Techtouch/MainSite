@@ -28,7 +28,7 @@
                 <span class="pull-right">@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>
             </div>
             <div class="panel-body">
-                <span class="span12">@Html.DisplayFor(modelItem => item.product_image)</span><br />
+                <span class="span12"><img src='@Html.DisplayFor(modelItem => item.product_image)' /></span><br />
                 <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
                 <span>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</span> <br />
             </div>
