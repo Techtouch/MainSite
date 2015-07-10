@@ -8,7 +8,6 @@
 
     
 <p>
-    @Html.ActionLink("Create New", "Create")
 
     @using (Html.BeginForm())
     {
@@ -19,25 +18,39 @@
     }
     
 
-        
-<table class="table table-striped">
-    
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductType.product_type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_description)
-        </th>       
-        <th>
-            @Html.DisplayNameFor(model => model.product_price)
-        </th>
-        <th></th>
-    </tr>
-      
+
+
+@*@foreach (var item in Model)
+{
+   <div class="row">
+       <div class="panel panel-default col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="panel-heading">
+               <span class="panel-title">@Html.DisplayFor(modelItem => item.product_name)</span>
+           </div>
+           <div class="panel-body">
+               <span>Product Description: </span> @Html.DisplayFor(modelItem => item.product_description) <br />
+               <span>Cost: </span> $@Html.DisplayFor(modelItem => item.product_price) <br/>
+               <span>Type: </span> @Html.DisplayFor(modelItem => item.ProductType.product_type)
+           </div>
+       </div>
+   </div>
+}*@
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="panel panel-default col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel-heading">
+                <span class="panel-title">@Html.DisplayFor(modelItem => item.product_name)</span>
+            </div>
+            <div class="panel-body">
+                <span>Product Description: </span> @Html.DisplayFor(modelItem => item.product_description) <br />
+                <span>Cost: </span> $@Html.DisplayFor(modelItem => item.product_price) <br />
+                <span>Type: </span> @Html.DisplayFor(modelItem => item.ProductType.product_type)
+            </div>
+        </div>
+    }
+</div>
 
 @foreach (var item in Model) {
     <tr>
@@ -61,5 +74,3 @@
         </td>
     </tr>
 }
-
-</table>
