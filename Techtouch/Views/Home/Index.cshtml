@@ -4,12 +4,16 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container text-center">
+<div class="container">
     <h3>Our best products</h3>
-    @foreach (var item in Model) {
-        <div class="product">
-            <h4>@Html.DisplayFor(modelItem => item.product_name)</h4>
-            <p>Price: @Html.DisplayFor(modelItem => item.product_price)</p>
-        </div>
-    }
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 product">
+                <img src="@Url.Content("~/Content/product_images/" + @item.product_image)" class="img-thumbnail" />
+                <h4>@Html.DisplayFor(modelItem => item.product_name)</h4>
+                <p>Price: @Html.DisplayFor(modelItem => item.product_price)</p>
+            </div>
+        }
+    </div>
 </div>
