@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using Techtouch.Models;
 
@@ -12,7 +13,8 @@ namespace Techtouch.Controllers
 {
     public class ProductsController : Controller
     {
-        private TechtouchConnection db = new TechtouchConnection();
+        private TechTouchieEntities db = new TechTouchieEntities();
+        public static string IMAGE_LOC = HostingEnvironment.ApplicationPhysicalPath + "/Content/product_images/";
 
         // GET: Products
         public ActionResult Index(string productType, string searchString)
@@ -64,10 +66,16 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id")] Product product)
+        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                }
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -98,11 +106,17 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id")] Product product)
+        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -118,6 +132,10 @@ namespace Techtouch.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
+            if (product.product_image != null)
+            {
+                System.IO.File.Delete(IMAGE_LOC + product.product_image);
+            }
             if (product == null)
             {
                 return HttpNotFound();
