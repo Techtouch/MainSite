@@ -257,6 +257,22 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\logo.jpg" />
+    <Content Include="Content\product_images\2dd5b50f-c921-4c3a-9f55-ff6c68eb6f27.jpg" />
+    <Content Include="Content\product_images\34092c46-3895-4ed1-8b1f-86f46be015ae.jpg" />
+    <Content Include="Content\product_images\3b5f3426-c47f-4f03-bef5-f1ed2c9ae335.jpg" />
+    <Content Include="Content\product_images\50187b90-aa06-4e3a-b1b6-989bd1fd631c.jpg" />
+    <Content Include="Content\product_images\5963430a-e03c-4a60-a8d6-381e1382ff94.jpg" />
+    <Content Include="Content\product_images\59a2e1ba-b298-4b25-a04e-bca86285c05f.jpg" />
+    <Content Include="Content\product_images\671524b7-5ffd-4703-91db-64c22a4535a1.jpg" />
+    <Content Include="Content\product_images\68e9f362-75fc-42fa-8fde-f0be4aafca49.jpg" />
+    <Content Include="Content\product_images\928204d9-394f-4d2b-8ef4-bffa1c45a416.jpg" />
+    <Content Include="Content\product_images\94564827-e785-44c8-8a6e-23142cf29864.jpg" />
+    <Content Include="Content\product_images\9e2e6d44-17c8-4421-b416-db9e774d47dc.jpg" />
+    <Content Include="Content\product_images\bab9eaa1-2d71-49f9-a0dd-ac922b26204d.jpg" />
+    <Content Include="Content\product_images\c732ac42-6740-467c-b0db-3e7a34d4f58e.jpg" />
+    <Content Include="Content\product_images\d8860af1-c6ef-487d-b253-d6dc3be4dae5.png" />
+    <Content Include="Content\product_images\df7a90b2-a6d3-45a8-a974-c97df9865286.jpg" />
+    <Content Include="Content\product_images\eb90a44a-b2f3-4b80-941b-108a6b9acbf2.jpg" />
     <Content Include="Content\zocial.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
@@ -344,7 +360,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\product_images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
