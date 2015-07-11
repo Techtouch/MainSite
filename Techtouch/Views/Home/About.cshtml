@@ -1,12 +1,24 @@
 ﻿@{
     ViewBag.Title = "About Us";
 }
-<h2>@ViewBag.Title.</h2>
+
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3>@ViewBag.Message</h3>
+        <h3>@ViewBag.Title</h3>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h4>@ViewBag.PanelHeading1</h4>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;Here at TechTouch, we strive to provide on the best for our clients. We provide the top of the market hardware for you every need. No longer do you have to look through pages of components
+            on various websites only to not know which components are the best. By visting TechTouch, you are telling yourself that you've had enough of wondering through the web, you want the best. You've come to the best place to receive the best. Vist our @Html.ActionLink("Products", "Index", "Products") page to see the amazing products we offer.
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;In order to perform purchases, please register. @Html.ActionLink("Register", "Register", "Account")</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Login here if you have an account. @Html.ActionLink("Login", "Login", "Account")</p>
     </div>
     <div class="panel-body">
+        <h4>@ViewBag.PanelHeading2</h4>
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;First off, we'd like to say thank you for wanting to learn more about the great people behind TechTouch. Secondly, I hope you are ready to learn about us, because there is a lot to tell.
         </p>
