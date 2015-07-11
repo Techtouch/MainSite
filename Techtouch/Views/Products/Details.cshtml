@@ -10,15 +10,26 @@
     <h4>Product</h4>
     <hr />
     <div class="row">
-        <div class="panel panel-primary col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-primary col-lg-12 col-md-12 col-sm-12 col-xs-12 product-image-details">
             <div class="panel-heading">
                 <span class="panel-title">@Html.DisplayFor(model => model.product_name)</span>
             </div>
             <div class="panel-body">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
+
                 <div class="pull-left col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                    <img src='@Html.DisplayFor(model => model.product_image)' />
+                    @if(Model.product_image != null)
+                    {
+                        <img src='@Url.Content("~/Content/product_images/")@Html.DisplayFor(model => model.product_image)' width="350" height="250" />
+                    }
+                    else
+                    {
+                        <img src='@Url.Content("~/Content/Images/noImage.jpg")' width="350" height="250" />
+                    }
                 </div>
+
+
+
                 <div class=" col-xs-12 col-sm-6 col-md-7 col-lg-7 pull-right">
                     <span> @Html.DisplayFor(model => model.product_description) </span><br /><br />
                     <span>Cost: </span> $@Html.DisplayFor(model => model.product_price) <br />

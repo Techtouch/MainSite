@@ -30,3 +30,13 @@
     margin: 0 auto;
     text-align: left;
 }
+
+.product-image {
+    margin: 10px 10px;
+    padding: 0;
+    min-height: 320px;
+}
+
+.product-image-details {
+    padding: 0;
+}

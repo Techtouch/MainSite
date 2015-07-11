@@ -6,7 +6,7 @@
 
 <h2 class="page-headings">Products.</h2>
 
-    
+
 <p>
     @Html.ActionLink("Create New", "Create")
 
@@ -17,22 +17,28 @@
         <input type="submit" value="Search" />
     </p>
     }
-    
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="panel panel-primary col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="panel-heading">
-                <span class="panel-title">@Html.DisplayFor(modelItem => item.product_name)</span>
-                <span class="pull-right">@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>
-            </div>
-            <div class="panel-body">
-                <span class="span12"><img src='@Html.DisplayFor(modelItem => item.product_image)' /></span><br />
-                <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
-                <span>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</span> <br />
-            </div>
-        </div>
-    }
-</div>
 
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-primary col-lg-3 col-md-3 col-sm-6 col-xs-12 product-image col-lg-offset-3">
+                <div class="panel-heading">
+                    <span class="panel-title"><a href="/Products/Details/@item.product_id">@Html.DisplayFor(modelItem => item.product_name)</a></span>
+                </div>
+                <div class="panel-body text-center">
+                    @if (item.product_image != null)
+                    {
+                        <span class="span12"><img src='@Url.Content("~/Content/product_images/" + item.product_image)' width="250" height="150" /></span><br />
+                    }
+                    else
+                    {
+                        <span class="span12"><img src='@Url.Content("~/Content/Images/noImage.jpg")' width="250" height="150" /></span><br />
+                    }
+                    <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
+                    <strong>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</strong> <br />
+                    <span>@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>
+                </div>
+            </div>
+        }
+    </div>
