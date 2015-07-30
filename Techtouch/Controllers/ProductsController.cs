@@ -15,6 +15,7 @@ namespace Techtouch.Controllers
     {
         private TechTouchieEntities db = new TechTouchieEntities();
         public static string IMAGE_LOC = HostingEnvironment.ApplicationPhysicalPath + "/Content/product_images/";
+        public static string[] IMAGE_TYPES = { "jpeg", "jpg", "png" };
 
         // GET: Products
         public ActionResult Index(string productType, string searchString, string sortBy, string sortOrder)
@@ -102,10 +103,13 @@ namespace Techtouch.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (upload != null && upload.ContentLength > 0)
+                if (IMAGE_TYPES.Contains(upload.ContentType))
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
                 }
 
                 db.Products.Add(product);
@@ -145,10 +149,13 @@ namespace Techtouch.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
-                if (upload != null && upload.ContentLength > 0)
+                if (IMAGE_TYPES.Contains(upload.ContentType))
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
                 }
 
                 db.SaveChanges();
