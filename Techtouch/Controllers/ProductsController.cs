@@ -15,7 +15,7 @@ namespace Techtouch.Controllers
     {
         private TechTouchieEntities db = new TechTouchieEntities();
         public static string IMAGE_LOC = HostingEnvironment.ApplicationPhysicalPath + "/Content/product_images/";
-        public static string[] IMAGE_TYPES = { "jpeg", "jpg", "png" };
+        public static string[] IMAGE_TYPES = { ".jpeg", ".jpg", ".png", ".gif" };
 
         // GET: Products
         public ActionResult Index(string productType, string searchString, string sortBy, string sortOrder)
