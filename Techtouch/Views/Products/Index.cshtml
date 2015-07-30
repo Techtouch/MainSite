@@ -44,8 +44,8 @@
                     <span>@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>                    
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <p>@Html.ActionLink("Edit", "Edit", new { id = item.product_id })</p>
-                        <p>@Html.ActionLink("Delete", "Delete", new { id = item.product_id })</p>
+                        
+                        <p>@Html.ActionLink("Edit", "Edit", new { id = item.product_id }) | @Html.ActionLink("Delete", "Delete", new { id = item.product_id })</p>
                     }
                 </div>
             </div>
