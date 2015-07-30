@@ -6,9 +6,12 @@
 
 <h2 class="page-headings">Products.</h2>
 
-
 <p>
-
+    <span>Sort By: </span>
+    @Html.ActionLink("Name", "Index", new { sortBy = "name", sortOrder = ViewBag.nameSortOrder }) | 
+    @Html.ActionLink("Price", "Index", new { sortBy = "price", sortOrder = ViewBag.priceSortOrder })
+</p>
+<p>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
         @Html.ActionLink("Create New", "Create")

@@ -17,11 +17,9 @@ namespace Techtouch.Controllers
         public static string IMAGE_LOC = HostingEnvironment.ApplicationPhysicalPath + "/Content/product_images/";
 
         // GET: Products
-        public ActionResult Index(string productType, string searchString)
+        public ActionResult Index(string productType, string searchString, string sortBy, string sortOrder)
         {
             var productList = new List<string>();
-
-
 
 
             var products = db.Products.Include(p => p.ProductType);
@@ -36,6 +34,38 @@ namespace Techtouch.Controllers
             {
                 products = db.Products.Where(x => x.ProductType.ToString() == productType);
             }
+
+            
+            sortBy = String.IsNullOrEmpty(sortBy) ? "name" : sortBy.ToLower();
+            sortOrder = String.IsNullOrEmpty(sortOrder) ? "asc" : sortOrder.ToLower();
+
+            if (sortBy == "price")
+            {
+                ViewBag.priceSortOrder = (sortOrder == "desc") ? "asc" : "desc";
+                ViewBag.nameSortOrder = "asc";
+            }
+            else
+            {
+                ViewBag.nameSortOrder = (sortOrder == "desc") ? "asc" : "desc";
+                ViewBag.priceSortOrder = "asc";
+            }
+            string sortKey = sortBy + "_" + sortOrder;
+            switch (sortKey)
+            {
+                case "price_asc":
+                    products = products.OrderBy(s => s.product_price);
+                    break;
+                case "name_desc":
+                    products = products.OrderByDescending(s => s.product_name);
+                    break;
+                case "price_desc":
+                    products = products.OrderByDescending(s => s.product_price);
+                    break;
+                default:
+                    products = products.OrderBy(s => s.product_name);
+                    break;
+            }
+
             return View(products.ToList());
         }
 
