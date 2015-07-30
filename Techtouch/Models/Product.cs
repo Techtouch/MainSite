@@ -31,7 +31,11 @@ namespace Techtouch.Models
         public double product_price { get; set; }
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
+
         public string product_description { get; set; }
+        [DisplayName("Long Description")]
+        [DataType(DataType.MultilineText)]
+        public string product_longdescription { get; set; }
         [DisplayName("Product Type")]
         public int product_type_id { get; set; }
         [DisplayName("Product Image")]
