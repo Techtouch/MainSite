@@ -55,6 +55,7 @@ namespace Techtouch.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.product_type_id = new SelectList(db.ProductTypes, "product_type_id", "product_type");
@@ -66,6 +67,7 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -86,6 +88,7 @@ namespace Techtouch.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -106,6 +109,7 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -125,6 +129,7 @@ namespace Techtouch.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -146,6 +151,7 @@ namespace Techtouch.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
@@ -154,6 +160,7 @@ namespace Techtouch.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -56,6 +56,8 @@
                     <div>
                         <img src="@Url.Content("~/Content/product_images/" + Model.product_image)" alt="Product image" class="img-responsive" />
                     </div>
+
+                    <input type="hidden" name="product_image" value="@Html.DisplayFor(modelItem   => Model.product_image)" />
                 }
                 <input type="file" id="product image" name="upload" />
             </div>
