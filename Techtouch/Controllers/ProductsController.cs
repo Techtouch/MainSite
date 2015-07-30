@@ -66,7 +66,7 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image, product_longdescription")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace Techtouch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image,product_longdescription")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
