@@ -98,7 +98,7 @@ namespace Techtouch.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image, product_longdescription")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +143,7 @@ namespace Techtouch.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image")] Product product, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "product_id,product_name,product_price,product_description,product_type_id,product_image,product_longdescription")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
