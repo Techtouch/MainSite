@@ -104,8 +104,11 @@ namespace Techtouch.Controllers
             {
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload.ContentType.Contains("image"))
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
                 }
 
                 db.Products.Add(product);
@@ -147,8 +150,11 @@ namespace Techtouch.Controllers
                 db.Entry(product).State = EntityState.Modified;
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload.ContentType.Contains("image"))
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
                 }
 
                 db.SaveChanges();
