@@ -15,7 +15,6 @@ namespace Techtouch.Controllers
     {
         private TechTouchieEntities db = new TechTouchieEntities();
         public static string IMAGE_LOC = HostingEnvironment.ApplicationPhysicalPath + "/Content/product_images/";
-        public static string[] IMAGE_TYPES = { ".jpeg", ".jpg", ".png", ".gif" };
 
         // GET: Products
         public ActionResult Index(string productType, string searchString, string sortBy, string sortOrder)
@@ -103,9 +102,9 @@ namespace Techtouch.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (upload != null && upload.ContentLength > 0)
+                if (upload != null && upload.ContentLength > 0 && upload.ContentType.Contains("image"))
                 {
-                    product.product_image = Guid.NewGuid().ToString() + "type_start_" + upload.ContentType + "_type_end" + System.IO.Path.GetExtension(upload.FileName);
+                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
                     upload.SaveAs(IMAGE_LOC + product.product_image);
                 }
 
@@ -146,9 +145,9 @@ namespace Techtouch.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
-                if (upload != null && upload.ContentLength > 0)
+                if (upload != null && upload.ContentLength > 0 && upload.ContentType.Contains("image"))
                 {
-                    product.product_image = Guid.NewGuid().ToString() + "type_start_" + upload.ContentType +"_type_end" + System.IO.Path.GetExtension(upload.FileName);
+                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
                     upload.SaveAs(IMAGE_LOC + product.product_image);
                 }
 
