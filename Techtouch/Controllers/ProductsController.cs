@@ -104,9 +104,17 @@ namespace Techtouch.Controllers
             {
                 if (upload != null && upload.ContentLength > 0 && upload.ContentType.Contains("image"))
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload.ContentType.Contains("image"))
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid File upload. Only .jpg, .jpeg, .gif, and .png files are allowed.");
+                    }
                 }
+
 
                 db.Products.Add(product);
                 db.SaveChanges();
@@ -145,10 +153,17 @@ namespace Techtouch.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
-                if (upload != null && upload.ContentLength > 0 && upload.ContentType.Contains("image"))
+                if (upload != null && upload.ContentLength > 0)
                 {
-                    product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
-                    upload.SaveAs(IMAGE_LOC + product.product_image);
+                    if (upload.ContentType.Contains("image"))
+                    {
+                        product.product_image = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName);
+                        upload.SaveAs(IMAGE_LOC + product.product_image);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid File upload. Only .jpg, .jpeg, .gif, and .png files are allowed.");
+                    }
                 }
 
                 db.SaveChanges();
