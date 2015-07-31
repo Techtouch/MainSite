@@ -3,7 +3,11 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>@ViewBag.Title.</h3>
+    </div>
+</div> 
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
