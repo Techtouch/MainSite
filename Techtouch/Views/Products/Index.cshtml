@@ -6,58 +6,58 @@
 
 <h2 class="page-headings">Products.</h2>
 
-<p>
-    <span>Sort By: </span>
-    @Html.ActionLink("Name", "Index", new { sortBy = "name", sortOrder = ViewBag.nameSortOrder }) | 
-    @Html.ActionLink("Price", "Index", new { sortBy = "price", sortOrder = ViewBag.priceSortOrder })
-</p>
-<p>
-    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Create New", "Create")
-    }
-
-    @using (Html.BeginForm())
-    {
+<div class="text-center">
     <p>
-        Product: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
+        <span>Sort By: </span>
+        @Html.ActionLink("Name", "Index", new { sortBy = "name", sortOrder = ViewBag.nameSortOrder }) |
+        @Html.ActionLink("Price", "Index", new { sortBy = "price", sortOrder = ViewBag.priceSortOrder })
     </p>
-    }
-
-
-    <div class="row">
-        @foreach (var item in Model)
+    <p>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
         {
-            <div class="panel panel-primary col-lg-3 col-md-3 col-sm-6 col-xs-12 product-image col-lg-offset-3">
-                <div class="panel-heading">
-                    @Html.ActionLink(item.product_name,"Details", new { id = item.product_id })
-
-
-
-                </div>
-                <div class="panel-body text-center">
-                    @if (item.product_image != null)
-                    {
-                        <span class="span12">
-                        <img src='@Url.Content("~/Content/product_images/" + item.product_image)' width="250" height="150" />
-                        </span><br />
-                    }
-                    else
-                    {
-                        <span class="span12"><img src='@Url.Content("~/Content/Images/noImage.jpg")' width="250" height="150" /></span><br />
-                    }
-                    <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
-                    <strong>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</strong> <br />
-                    <span>@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>                    
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        
-                        <p>@Html.ActionLink("Edit", "Edit", new { id = item.product_id }) | @Html.ActionLink("Delete", "Delete", new { id = item.product_id })</p>
-                    }
-                </div>
+            @Html.ActionLink("Create New", "Create")
         }
+
+        @using (Html.BeginForm())
+        {
+        <p>
+            Product: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+        }
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-primary col-lg-3 col-md-3 col-sm-6 col-xs-12 product-image col-lg-offset-3">
+            <div class="panel-heading">
+                @Html.ActionLink(item.product_name,"Details", new { id = item.product_id })
+
+
+
             </div>
-        }
-     </div>
+            <div class="panel-body text-center">
+                @if (item.product_image != null)
+                {
+                    <span class="span12">
+                    <img src='@Url.Content("~/Content/product_images/" + item.product_image)' width="250" height="150" />
+                    </span><br />
+                }
+                else
+                {
+                    <span class="span12"><img src='@Url.Content("~/Content/Images/noImage.jpg")' width="250" height="150" /></span><br />
+                }
+                <span> @Html.DisplayFor(modelItem => item.product_description)</span> <br />
+                <strong>Cost:  $@Html.DisplayFor(modelItem => item.product_price)</strong> <br />
+                <span>@Html.ActionLink("Details", "Details", new { id = item.product_id })</span>                    
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                        
+                    <p>@Html.ActionLink("Edit", "Edit", new { id = item.product_id }) | @Html.ActionLink("Delete", "Delete", new { id = item.product_id })</p>
+                }
+            </div>
+    }
+        </div>
+    }
+    </div>
             
