@@ -11,9 +11,6 @@ namespace Techtouch.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel;
-    using System.Web.Mvc;
     
     public partial class Product
     {
@@ -21,25 +18,14 @@ namespace Techtouch.Models
         {
             this.Orders = new HashSet<Order>();
         }
-
+    
         public int product_id { get; set; }
-        [DisplayName("Name")]
-        [Required(ErrorMessage = "Product name must be added")]
         public string product_name { get; set; }
-        [Required(ErrorMessage = "Price must be added")]
-        [DisplayName("Price")]
         public double product_price { get; set; }
-        [DisplayName("Description")]
-        [DataType(DataType.MultilineText)]
-
         public string product_description { get; set; }
-        [DisplayName("Long Description")]
-        [DataType(DataType.MultilineText)]
-        public string product_longdescription { get; set; }
-        [DisplayName("Product Type")]
         public int product_type_id { get; set; }
-        [DisplayName("Product Image")]
         public string product_image { get; set; }
+        public string product_longdescription { get; set; }
     
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ProductType ProductType { get; set; }
