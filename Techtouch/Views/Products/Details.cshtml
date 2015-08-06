@@ -45,6 +45,10 @@
                     <span>Description:</span> @Html.DisplayFor(model => model.product_longdescription)<br /><br />
                     <span>Cost: </span> $@Html.DisplayFor(model => model.product_price) <br />
                     <span>Product Type: @Html.DisplayFor(model => model.ProductType.product_type)</span>
+
+                    <p class="button">
+                        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.product_id }, "")
+                    </p>
                     <div>
                         <div class="fb-share-button" data-layout="button_count"></div>
                     </div>

@@ -20,6 +20,9 @@
         <AssociationConnector Association="TechTouchieModel.order_product_id" ManuallyRouted="false" />
         <AssociationConnector Association="TechTouchieModel.product_type_id" ManuallyRouted="false" />
         <AssociationConnector Association="TechTouchieModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TechTouchieModel.Cart" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TechTouchieModel.Order1" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TechTouchieModel.OrderDetail" Width="1.5" PointX="9.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

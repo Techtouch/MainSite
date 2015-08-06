@@ -34,5 +34,8 @@ namespace Techtouch.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductType> ProductTypes { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Order1> Order1 { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }
