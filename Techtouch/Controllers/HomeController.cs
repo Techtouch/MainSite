@@ -14,9 +14,7 @@ namespace Techtouch.Controllers
         public ActionResult Index()
         {
             ViewBag.HeaderImage = "~/Content/Images/header.jpg";
-
-            var products = db.Products.ToList().OrderByDescending(m => m.product_price).Take(5);
-            return View(products);
+            return View();
         }
 
         public ActionResult About()
