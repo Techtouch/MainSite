@@ -259,6 +259,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\logo.jpg" />
     <Content Include="Content\Images\noImage.jpg" />
+    <Content Include="Content\js\home.js" />
     <Content Include="Content\product_images\2dd5b50f-c921-4c3a-9f55-ff6c68eb6f27.jpg" />
     <Content Include="Content\product_images\34092c46-3895-4ed1-8b1f-86f46be015ae.jpg" />
     <Content Include="Content\product_images\3b5f3426-c47f-4f03-bef5-f1ed2c9ae335.jpg" />
