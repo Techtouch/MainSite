@@ -4,16 +4,47 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
-    <h3>Our best products</h3>
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 product">
-                <img src="@Url.Content("~/Content/product_images/" + @item.product_image)" class="img-thumbnail" />
-                <h4>@Html.DisplayFor(modelItem => item.product_name)</h4>
-                <p>Price: @Html.DisplayFor(modelItem => item.product_price)</p>
+<div class="container" ng-app="myApp">
+    <div class="row best-products" ng-controller="HomeCtrl">
+        <h3 class="text-center">Our best products</h3>
+        <div ng-repeat="product in bestProducts" class="panel panel-primary col-lg-3 col-md-3 col-sm-6 col-xs-12 product-image col-lg-offset-3">
+            <div class="panel-heading">
+
+                <span class="panel-title"><a href="/Products/Details/{{ product.product_id }}">{{ product.product_name }}</a></span>
+
             </div>
-        }
+            <div class="panel-body text-center">
+                <span ng-if="product.product_image" class="span12"><img src="~/Content/product_images/{{ product.product_image }}" width="250" height="150" /></span><br />
+                <span ng-if="!product.product_image" class="span12"><img src="~/Content/Images/noImage.jpg" width="250" height="150" /></span><br />
+                <span>{{ product.product_description }}</span> <br />
+                <strong>Cost:  {{ product.product_price }}</strong> <br />
+                <span><a href="/Products/Details/{{ product.product_id }}">Details</a></span><br />
+                <button class="btn btn-success" name="addToCart">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="row cheapest-products" ng-controller="HomeCtrl">
+        <h3 class="text-center">Our cheapest products</h3>
+        <div ng-repeat="product in cheapestProducts" class="panel panel-primary col-lg-3 col-md-3 col-sm-6 col-xs-12 product-image col-lg-offset-3">
+            <div class="panel-heading">
+
+                <span class="panel-title"><a href="/Products/Details/{{ product.product_id }}">{{ product.product_name }}</a></span>
+
+            </div>
+            <div class="panel-body text-center">
+                <span ng-if="product.product_image" class="span12"><img src="~/Content/product_images/{{ product.product_image }}" width="250" height="150" /></span><br />
+                <span ng-if="!product.product_image" class="span12"><img src="~/Content/Images/noImage.jpg" width="250" height="150" /></span><br />
+                <span>{{ product.product_description }}</span> <br />
+                <strong>Cost:  {{ product.product_price }}</strong> <br />
+                <span><a href="/Products/Details/{{ product.product_id }}">Details</a></span><br />
+                <button class="btn btn-success" name="addToCart">Add To Cart</button>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/js/home.js")" type="text/javascript"></script>
